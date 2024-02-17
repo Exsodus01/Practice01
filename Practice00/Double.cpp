@@ -8,10 +8,7 @@ using namespace std;
  int main(void) {
 	cout << "main() : " << endl;
 
-
-
-	NODE n;
-	NODE k("reon", 5);
+	Alpha Flist;
 	
 
 
