@@ -15,7 +15,7 @@ private:
 
 public:
 	Node()
-		:Cdata(), Ndata(0), Prev(nullptr), Next(nullptr)
+		:Cdata(""), Ndata(0), Prev(nullptr), Next(nullptr)
 	{
 
 	}
@@ -23,24 +23,44 @@ public:
 	{
 
 	}
+	string getCdata(Node* Tmp) {
+		return Tmp->Cdata;
+	}
+	int getNdata(Node* Tmp) {
+		return Tmp->Ndata;
+	}
+	Node* getPrev(Node* Tmp) {
+		return Tmp->Prev;
+	}
+	Node* getNext(Node* Tmp) {
+		return Tmp->Next;
+	}
 
-	string getCdata(Node* head) {
+	void setCdata(Node* Tmp,string Cd) {
+		Tmp->Cdata = Cd;
+	}
+	void setNdata(Node* Tmp, int Nd) {
+		Tmp->Ndata = Nd;
+	}
+	void setPrev(Node* Tmp, Node* Ptmp) {
+		Tmp->Prev = Ptmp;
+	}
+	void setNext(Node* Tmp, Node* Ptmp) {
+		Tmp->Next = Ptmp;
+	}
+
+	Node* getPrevNode(Node* Tmp) {
+
+		return Tmp->Prev;
+	}
+	
+	Node* getNextNode(Node* Tmp) {
 		
-		return head->Cdata;
-	}
-	int getNdata(Node* head) {
-		return head->Ndata;
-	}
-
-	Node* getPrev(Node* head) {
-		return head->Prev;
-	}
-	Node* getNext(Node* head) {
-		return head->Next;
+		return Tmp->Next;
 	}
 
 
-	Node* createNode(string Cd, int Nd) {
+	Node* setNode(string Cd, int Nd) {
 		Node* Tmp = new Node;
 		Tmp->Cdata = Cd;
 		Tmp->Ndata = Nd;
@@ -49,60 +69,10 @@ public:
 	}
 
 
-	void cntSetNode(Node* head,string Cd,int Nd,int k) {
-		for (int n = 1; n < k; n++) {
-			head = head->Next;
-		}
-		head->Cdata = Cd;
-		head->Ndata = Nd;
-
-	}
 
 
-	Node* insertFront(Node* &head, string Cd,int Nd) {
-		Node* Tmp = new Node;
-		Tmp->Cdata = Cd;
-		Tmp->Ndata = Nd;
 
 
-		if (head->Prev != nullptr) {
-			head->Prev->Next = Tmp;
-			Tmp->Prev = head->Prev;
-			Tmp->Next = head;
-			head->Prev = Tmp;
-
-		}
-		else {
-			Tmp->Next = head;
-			head->Prev = Tmp;
-			head = Tmp;
-
-		}
-
-		return Tmp;
-
-	}
-
-	void insertBack(Node* &head,Node* &tail, string Cd, int Nd) {
-		Node* Tmp = new Node;
-		Tmp->Cdata = Cd;
-		Tmp->Ndata = Nd;
-
-		if (head->Next != nullptr) {
-			head->Next->Prev = Tmp;
-			Tmp->Prev = head;
-			Tmp->Next = head->Next;
-			head->Next = Tmp;
-			
-		}
-		else {
-			head->Next = Tmp;
-			Tmp->Prev = head;
-			tail = Tmp;
-		}
-
-
-	}
 
 
 
@@ -126,49 +96,7 @@ public:
 	{
 
 	}
-	int getCnt() {
-		return Cnt;
-	}
-
-	Node* getHead() {
-		return head;
-	}
-	Node* getTail() {
-		return tail;
-	}
-
-
-	void createList(string Cd,int Nd) {
-		Node* Tmp = new Node;
-		Tmp=createNode(Cd, Nd);
-		head = Tmp;
-		tail = Tmp;
-	}
-
-	void display() {
 	
-		Node* Tmp = getHead();
-
-		if (Tmp == nullptr) {
-			cout << "ÅÖ ºó ¸®½ºÆ®ÀÔ´Ï´Ù." << endl;
-			
-
-		}
-		else {
-			while (Tmp != nullptr) {
-				
-				cout << "Cdata : "<<getCdata(Tmp)<< endl;
-				cout << "Ndata : " << getNdata(Tmp) << endl;
-				cout << "Prev : " << getPrev(Tmp) << endl;
-				cout << "Next : " << getNext(Tmp) << endl;
-
-				Tmp = getNext(Tmp);
-			}
-
-		}
-
-
-	}
 
 
 };
