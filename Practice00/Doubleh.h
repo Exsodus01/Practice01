@@ -97,7 +97,52 @@ public:
 
 	}
 	
+	void createList(string Cd, int Nd) {
+		
+		this->head = setNode(Cd, Nd);
+		tail = this->head;
 
+		indexNode();
+	}
+
+	int indexNode() {
+		Node* Tmp = this->head;
+		Cnt = 0;
+		while (Tmp != nullptr) {
+			Cnt++;
+			Tmp = getNext(Tmp);
+		}
+
+		return Cnt;
+
+
+	}
+
+	void insertF(string Cd, int Nd) {
+
+		Node* Tmp = setNode(Cd, Nd);
+		setNext(Tmp, this->head);
+		setPrev(this->head, Tmp);
+		this->head = Tmp;
+
+		indexNode();
+	}
+
+	void displayList() {
+		Node* Tmp = this->head;
+
+		while (Tmp != nullptr) {
+
+			cout << "Cdata : " << getCdata(Tmp) << endl;
+			cout << "Ndata : " << getNdata(Tmp) << endl;
+			
+
+			cout << endl;
+
+			Tmp = getNext(Tmp);
+		}
+		cout << "Cnt : " << this->Cnt << endl;
+	}
 
 };
 

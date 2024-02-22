@@ -6,14 +6,25 @@ using namespace std;
 
 
  int main(void) {
-	cout << "main() : " << endl;
+	
 
+	 ptr list;
+
+	 list.createList("one", 44);
+
+	 list.insertF("two", 23);
+	 list.insertF("three", 23);
+	 list.insertF("four", 23);
+	 list.insertF("five", 23);
+
+
+	 list.displayList();
 	
 
 
 
 	
 
-	cout << "~main() : " << endl;
+	
 	return 0;
 }
