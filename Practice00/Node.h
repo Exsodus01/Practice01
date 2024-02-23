@@ -1,154 +1,28 @@
 #pragma once
-
 #include <string>
 using namespace std;
-
-
 class Node {
 private:
 	string Cdata;
 	int Ndata;
-
 	Node* Prev;
 	Node* Next;
 
-
 public:
-	Node()
-		:Cdata(""), Ndata(0), Prev(nullptr), Next(nullptr)
-	{
-
-	}
-	~Node()
-	{
-
-	}
-	string getCdata(Node* Tmp) {
-		return Tmp->Cdata;
-	}
-	int getNdata(Node* Tmp) {
-		return Tmp->Ndata;
-	}
-	Node* getPrev(Node* Tmp) {
-		return Tmp->Prev;
-	}
-	Node* getNext(Node* Tmp) {
-		return Tmp->Next;
-	}
-
-	void setCdata(Node* Tmp,string Cd) {
-		Tmp->Cdata = Cd;
-	}
-	void setNdata(Node* Tmp, int Nd) {
-		Tmp->Ndata = Nd;
-	}
-	void setPrev(Node* Tmp, Node* Ptmp) {
-		Tmp->Prev = Ptmp;
-	}
-	void setNext(Node* Tmp, Node* Ptmp) {
-		Tmp->Next = Ptmp;
-	}
-
-	Node* getPrevNode(Node* Tmp) {
-
-		return Tmp->Prev;
-	}
-	
-	Node* getNextNode(Node* Tmp) {
-		
-		return Tmp->Next;
-	}
-
-
-	Node* setNode(string Cd, int Nd) {
-		Node* Tmp = new Node;
-		Tmp->Cdata = Cd;
-		Tmp->Ndata = Nd;
-
-		return Tmp;
-	}
-
-
-
-
-
-
-
-
-
+	Node();
+	~Node();
+	string getCdata(Node* Tmp);
+	int getNdata(Node* Tmp);
+	Node* getPrev(Node* Tmp);
+	Node* getNext(Node* Tmp);
+	void setCdata(Node* Tmp, string Cd);
+	void setNdata(Node* Tmp, int Nd);
+	void setPrev(Node* Tmp, Node* Ptmp);
+	void setNext(Node* Tmp, Node* Ptmp);
+	Node* getPrevNode(Node* Tmp);
+	Node* getNextNode(Node* Tmp);
+	Node* setNode(string Cd, int Nd);
 };
-
-class ptr : public Node {
-
-private:
-	int Cnt;
-
-	Node* head;
-	Node* tail;
-
-public:
-	ptr()
-		:Cnt(0), head(nullptr), tail(nullptr)
-	{
-
-	}
-	~ptr()
-	{
-
-	}
-	
-	void createList(string Cd, int Nd) {
-		
-		this->head = setNode(Cd, Nd);
-		tail = this->head;
-
-		indexNode();
-	}
-
-	int indexNode() {
-		Node* Tmp = this->head;
-		Cnt = 0;
-		while (Tmp != nullptr) {
-			Cnt++;
-			Tmp = getNext(Tmp);
-		}
-
-		return Cnt;
-
-
-	}
-
-	void insertF(string Cd, int Nd) {
-
-		Node* Tmp = setNode(Cd, Nd);
-		setNext(Tmp, this->head);
-		setPrev(this->head, Tmp);
-		this->head = Tmp;
-
-		indexNode();
-	}
-
-	void displayList() {
-		Node* Tmp = this->head;
-
-		while (Tmp != nullptr) {
-
-			cout << "Cdata : " << getCdata(Tmp) << endl;
-			cout << "Ndata : " << getNdata(Tmp) << endl;
-			
-
-			cout << endl;
-
-			Tmp = getNext(Tmp);
-		}
-		cout << "Cnt : " << this->Cnt << endl;
-	}
-
-};
-
-
-
-
 
 
 /*
