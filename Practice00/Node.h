@@ -11,10 +11,10 @@ private:
 public:
 	Node();
 	~Node();
-	string getCdata(Node* Tmp);
-	int getNdata(Node* Tmp);
-	Node* getPrev(Node* Tmp);
-	Node* getNext(Node* Tmp);
+	string getCdata(Node* Tmp) const;
+	int getNdata(Node* Tmp) const;
+	Node* getPrev(Node* Tmp) const;
+	Node* getNext(Node* Tmp) const;
 	void setCdata(Node* Tmp, string Cd);
 	void setNdata(Node* Tmp, int Nd);
 	void setPrev(Node* Tmp, Node* Ptmp);
@@ -22,6 +22,7 @@ public:
 	Node* getPrevNode(Node* Tmp);
 	Node* getNextNode(Node* Tmp);
 	Node* setNode(string Cd, int Nd);
+	
 };
 
 

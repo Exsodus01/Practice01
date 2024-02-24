@@ -15,6 +15,9 @@ public:
     int indexNode();
     void insertF(std::string Cd, int Nd);
     void insertB(std::string Cd, int Nd);
+    int insertN(string Cd, int Nd, int Num);
+    Node* searchString(string Cd) const;
+ 
     int deleteList();
-    int displayList();
+    int displayList() const;
 };

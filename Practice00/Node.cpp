@@ -4,7 +4,7 @@
 
 
 
-	Node::Node()
+	Node::Node() 
 		:Cdata(""), Ndata(0), Prev(nullptr), Next(nullptr)
 	{
 
@@ -13,16 +13,16 @@
 	{
 
 	}
-	string Node::getCdata(Node* Tmp) {
+	string Node::getCdata(Node* Tmp) const {
 		return Tmp->Cdata;
 	}
-	int Node::getNdata(Node* Tmp) {
+	int Node::getNdata(Node* Tmp) const {
 		return Tmp->Ndata;
 	}
-	Node* Node::getPrev(Node* Tmp) {
+	Node* Node::getPrev(Node* Tmp) const {
 		return Tmp->Prev;
 	}
-	Node* Node::getNext(Node* Tmp) {
+	Node* Node::getNext(Node* Tmp) const {
 		return Tmp->Next;
 	}
 
